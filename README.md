@@ -8,7 +8,8 @@ Good for rendering dynamic Open Graph images quickly and effeciently without hav
 ## Features
 
 - Renders a normal svelte component as a png
-- Use basic CSS like flexbox and absolute positioning ['See valid CSS'](https://github.com/vercel/satori#css)
+- Component props are supported for dynamic image generation
+- Use basic CSS like flexbox and absolute positioning ([See valid CSS](https://github.com/vercel/satori#css))
 - Lightweight and fast (doesn't use canvas or puppeteer)
 - Load custom fonts: tff, otf, woff accepted (woff2 not accepted currently)
 
