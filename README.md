@@ -34,9 +34,9 @@ npm install svelte-component-to-image
 Create a `.svelte` component with JS/HTML/CSS. You can pass props or use additional technologies
 that require preproccesors like TypeScript or SASS.
 
-```
+```svelte
 <script lang="ts">
-    export let text: string
+    export let text: string = "hello"
 </script>
 
 <div id="container">
