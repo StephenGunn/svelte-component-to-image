@@ -85,8 +85,7 @@ export const GET: RequestHandler = (async ({url}) => {
             width: 1200,
             height: 600,
             props: {
-                text: url.searchParams.get('text') ?? 'text not found',
-                second: url.searchParams.get('second') ?? 'text not found'
+                text: url.searchParams.get('text') ?? 'text not found'
             },
             fonts: [
                 {
@@ -112,13 +111,21 @@ export const GET: RequestHandler = (async ({url}) => {
 You can import as many ttf, otf, and woff fonts as you want to use inside of your component. 
 Although, importing 100 fonts is going to affect server load and speed.
 
-woff2 files are not currently supported.
+**woff2 files are not currently supported.**
 
 Fonts files can be local or remote. They need a full URL to be properly loaded. Local fonts
 stored in `/static` can be loaded using `${url.origin}/` as long as `{url}` is made available
 in the endpoint.
 
-Once the font is loaded, you can reference them in the CSS using `font-family`.
+Once the font is loaded, you can reference them in the CSS using `font-family`. If only one font is loaded,
+it will be the default.
+
+### Images
+Images can be used and rendered like normal. You will want to set the height and width.
+
+```HTML
+<img src="https://picsum.photos/200/300" width="200" height="300" />
+```
 
 ## License
 
