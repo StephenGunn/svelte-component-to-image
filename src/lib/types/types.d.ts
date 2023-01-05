@@ -30,3 +30,12 @@ interface FontOptions {
     style?: Style
     url?: string
 }
+
+type RenderOptions = {
+    width: number
+    height: number
+    props?: {
+        [key:string]: any
+    }
+    fonts: FontOptions[]
+}
