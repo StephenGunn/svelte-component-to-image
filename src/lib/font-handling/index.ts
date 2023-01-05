@@ -1,15 +1,10 @@
-export const test_font = async () => {
-    const font = await(await fetch(`https://fonts.gstatic.com/s/montserrat/v25/JTUFjIg1_i6t8kCHKm459Wx7xQYXK0vOoz6jq0N6aX8.ttf`)).blob()
-    const buf  = await font.arrayBuffer()
+// get local font and render as an array buffer
+export const get_font_as_buffer = async (location: string) => {
+    // check to make sure that we have a full URL
+    const is_url = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/
+    if(!is_url.test(location)) console.error(`Font locations need to be specified with a full URL to work`)
 
-    console.log(buf)
-
-    return buf
-}
-
-
-// get and render font from our static directory
-export const get_local_font = async (location: string) => {
+    // the renderer
     const  font = await(await fetch(location)).blob()
     const  buf  = await font.arrayBuffer()
     return buf

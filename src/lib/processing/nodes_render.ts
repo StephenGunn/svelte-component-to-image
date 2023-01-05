@@ -2,14 +2,16 @@
 // then return a set of satori ready nodes 
 import { juiceResources, type Options as JuiceOptions } from 'juice'
 import { html as to_satori_nodes } from 'satori-html'
-import type { SvelteComponent }   from 'svelte'
 
-export const html_render = async (
-    Component: SvelteComponent,
-    { data = {}, ...options }: { data?: {} } & JuiceOptions = {}) => {
+export const nodes_render = async (
+    Component: any,
+    props?: {
+        [key: string]: any
+    },
+) => {
 
     // convert the component into strings
-    const { html: rawHtml, css, head } = Component.render(data)
+    const { html: rawHtml, css, head } = Component.render(props)
     
     // display an error if <svelte:head> is included in component
     if (head) {
@@ -17,10 +19,10 @@ export const html_render = async (
     }
 
     // render our styles as inline styles through Juice
+    // thank you svelte mailer for this piece of code
     const inline_html: string = await new Promise((resolve, reject) => {
         juiceResources(
-            `${css.code ? `<style>${css.code}</style>` : ''}${rawHtml}`,
-            options,
+            `${css.code ? `<style>${css.code}</style>` : ''}${rawHtml}`, {},
             (err, result) => (err ? reject(err) : resolve(result))
         )
     })

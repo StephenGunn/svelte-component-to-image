@@ -1,10 +1,10 @@
-<script>
-    let hello = 'hello'
+<script lang="ts">
+    export let text: string
 </script>
 
 <div id="container">
     <h1>
-        {hello} worlds!
+        {text} worlds!
     </h1>
     <div class="square">
         absolutely positioned

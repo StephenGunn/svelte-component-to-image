@@ -1,12 +1,10 @@
 // Take SVG and render it into a PNG
 import { Resvg } from '@resvg/resvg-js'
 
-
 export const png_render = async (
     svg: string,
     options: ResvgOptions
 ) => {
-
     const resvg = new Resvg(svg, {
         fitTo: {
             mode: 'width',

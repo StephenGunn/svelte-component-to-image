@@ -2,12 +2,28 @@ import { error } from '@sveltejs/kit'
 import type { RequestHandler } from './$types'
 
 // import my test stuff
+import { image_from_component, type RenderOptions } from '$lib/index.js'
 import HelloWorld from '$lib/components/HelloWorld.svelte'
-import { image_from_component } from '$lib/index.js'
  
-export const GET = (async () => {
+export const GET: RequestHandler = (async ({url}) => {
+    console.log(url)
     try {
-        const image = await image_from_component(HelloWorld, {})
+        const options: RenderOptions = {
+            width: 1200,
+            height: 600,
+            props: {
+                text: url.searchParams.get('text') ?? 'text not found'
+            },
+            fonts: [
+                {
+                    name: 'Typewriter',
+                    url: `${url.origin}/TYPEWR__.TTF`,
+                    weight: 400,
+                    style: 'normal'
+                }
+            ]
+        }
+        const image    = await image_from_component(HelloWorld, options)
         const response = new Response(image)
         response.headers.append('content-type', 'image/png')
         return response
