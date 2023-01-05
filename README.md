@@ -108,6 +108,10 @@ export const GET: RequestHandler = (async ({url}) => {
 }) satisfies RequestHandler
 ```
 
+### Font Importing
+You can import as many ttf, otf, and woff fonts as you want to use inside of your component. 
+Although, importing 100 fonts is going to affect server load and speed.
+
 
 ## License
 
