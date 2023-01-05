@@ -60,13 +60,12 @@ that require preproccesors like TypeScript or SASS.
     h1 {
         color: red;
         font-size: 75px;
-        
     }
 </style>
 ```
 
 ### +server.ts Endpoint
-Create a +server.ts endpoint to render and serve the image. Import the package and types.
+Create a +server.ts endpoint to render and serve the image. Import the package and options type.
 
 More on how the font importing works below.
 
@@ -74,10 +73,10 @@ More on how the font importing works below.
 import { error } from '@sveltejs/kit'
 import type { RequestHandler } from './$types'
 
-// import my test stuff
-import { image_from_component } from 'svelte-component-to-image'
-import type { RenderOptions } from 'svelte-component-to-image'
+// Svelte Component To Image
+import { image_from_component, type RenderOptions } from 'svelte-component-to-image'
 
+// Normal .svelte component
 import HelloWorld from './HelloWorld.svelte'
  
 export const GET: RequestHandler = (async ({url}) => {
@@ -86,7 +85,8 @@ export const GET: RequestHandler = (async ({url}) => {
             width: 1200,
             height: 600,
             props: {
-                text: url.searchParams.get('text') ?? 'text not found'
+                text: url.searchParams.get('text') ?? 'text not found',
+                second: url.searchParams.get('second') ?? 'text not found'
             },
             fonts: [
                 {
@@ -103,7 +103,7 @@ export const GET: RequestHandler = (async ({url}) => {
         return response
     } catch (e) {
         console.error(e)
-        throw error(500, 'Error')
+        throw error(500, 'Error trying to generate image from component.')
     }
 }) satisfies RequestHandler
 ```
