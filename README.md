@@ -23,6 +23,8 @@ This package is very much in it's alpha stages. While it works, use in productio
 npm install svelte-component-to-image
 ```
 
+Currently does not work on cloudflare pages. Hopefully soon :)
+
 ## Usage
 
 ### Create A Component
