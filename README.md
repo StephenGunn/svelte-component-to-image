@@ -127,6 +127,10 @@ Images can be used and rendered like normal. You will want to set the height and
 <img src="https://picsum.photos/200/300" width="200" height="300" />
 ```
 
+### More info
+This uses Vercel's Satori. You can find out more about what is and isn't supported by reading it's docs:
+[Vercel's Satori](https://github.com/vercel/satori)
+
 ## License
 
 MIT
