@@ -5,7 +5,7 @@ A package for easily rendering .png images from svelte components. Inspired by V
 
 Good for rendering dynamic Open Graph images quickly and effeciently without having to use canvas.
 
-[Demo](https://svelte-component-to-image.netlify.app/)
+[Demo](https://svelte-component-to-image.vercel.app/)
 
 ## Features
 
@@ -25,7 +25,11 @@ This package is very much in it's alpha stages. While it works, use in productio
 npm install svelte-component-to-image
 ```
 
-*Does not work on cloudflare pages. Hopefully soon :)*
+### Tested On
+
+- Vercel (working)
+- Netlify (working)
+- Cloudflare Pages (not working)
 
 ## Usage
 
