@@ -25,14 +25,46 @@ This package is very much in it's alpha stages. While it works, use in productio
 npm install svelte-component-to-image
 ```
 
-Currently does not work on cloudflare pages. Hopefully soon :)
+*Does not work on cloudflare pages. Hopefully soon :)*
 
 ## Usage
 
 ### Create A Component
 
-You can create a normal component with JS/HTML/CSS. You can pass props or use additional technologies
+Create a `.svelte` component with JS/HTML/CSS. You can pass props or use additional technologies
 that require preproccesors like TypeScript or SASS.
+
+```
+<script lang="ts">
+    export let text: string
+</script>
+
+<div id="container">
+    <h1>
+        {text} world!
+    </h1>
+</div>
+
+
+<style>
+    #container {
+        width: 1200px;
+        height: 600px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        background: rgb(63,94,251);
+        background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
+    }
+    h1 {
+        color: red;
+        font-size: 75px;
+        
+    }
+</style>
+```
+
 
 Create a +server.ts endpoint to render and serve the image.
 
