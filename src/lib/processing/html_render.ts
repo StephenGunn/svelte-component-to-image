@@ -28,7 +28,5 @@ export const html_render = async (
     // render satori friendly HTML and return it
     const satori_nodes = to_satori_nodes(inline_html)
 
-    console.log(typeof(satori_nodes))
-    console.log(satori_nodes)
     return satori_nodes
 }
