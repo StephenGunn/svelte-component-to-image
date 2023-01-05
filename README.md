@@ -112,6 +112,13 @@ export const GET: RequestHandler = (async ({url}) => {
 You can import as many ttf, otf, and woff fonts as you want to use inside of your component. 
 Although, importing 100 fonts is going to affect server load and speed.
 
+woff2 files are not currently supported.
+
+Fonts files can be local or remote. They need a full URL to be properly loaded. Local fonts
+stored in `/static` can be loaded using `${url.origin}/` as long as `{url}` is made available
+in the endpoint.
+
+Once the font is loaded, you can reference them in the CSS using `font-family`.
 
 ## License
 
