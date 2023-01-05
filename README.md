@@ -7,4 +7,9 @@ Good for rendering dynamic Open Graph images quickly and effeciently without hav
 
 ## Alpha Release
 
-This package is very much in it's alpha stages.
+This package is very much in it's alpha stages. While it works, use in production at your own risk.
+
+## License
+
+MIT
+
