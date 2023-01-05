@@ -6,6 +6,9 @@
 <main>
     <div>
         <img src="/image?text={value}&second={second}" alt="testing the thing">
+        <p>
+            open in new windows: <a href="/image?text={value}&second={second}" target="_blank" rel="noopener noreferrer">/image?text={value}&second={second}</a>
+        </p>
     </div>
     <div>
         <input bind:value />

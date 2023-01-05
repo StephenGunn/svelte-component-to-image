@@ -1,6 +1,7 @@
 // Take a svelte component, render it down to html, inline the styles
 // then return a set of satori ready nodes 
-import { juiceResources, type Options as JuiceOptions } from 'juice'
+import pkg from 'juice'
+const { juiceResources } = pkg
 import { html as to_satori_nodes } from 'satori-html'
 
 export const nodes_render = async (
