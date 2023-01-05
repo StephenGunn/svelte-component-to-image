@@ -19,7 +19,9 @@ This package is very much in it's alpha stages. While it works, use in productio
 
 ## Installation
 
-coming soon
+```
+npm install svelte-component-to-image
+```
 
 ## Usage
 
