@@ -38,6 +38,7 @@ npm install svelte-component-to-image
 Create a `.svelte` component with JS/HTML/CSS. You can pass props or use additional technologies
 that require preproccesors like TypeScript or SASS.
 
+#### HelloWorld.svelte
 ```svelte
 <script lang="ts">
     export let text: string = "hello"
@@ -73,6 +74,7 @@ Create a +server.ts endpoint to render and serve the image. Import the package a
 
 More on how the font importing works below.
 
+#### image/+server.ts
 ```TS
 import { error } from '@sveltejs/kit'
 import type { RequestHandler } from './$types'
@@ -100,6 +102,8 @@ export const GET: RequestHandler = (async ({url}) => {
                 }
             ]
         }
+
+        // pass the component and options to the package
         const image    = await image_from_component(HelloWorld, options)
         const response = new Response(image)
         response.headers.append('content-type', 'image/png')
