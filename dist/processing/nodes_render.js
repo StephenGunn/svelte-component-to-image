@@ -7,6 +7,10 @@ import { render } from 'svelte/server';
 export const nodes_render = async (Component, props) => {
     // render the body and the head
     const { head, body } = render(Component, { props });
+    console.log('TESTING');
+    console.log('head', head);
+    console.log('body', body);
+    console.log('props', props);
     const inline_html = await new Promise((resolve, reject) => {
         juiceResources(head ? head + body : body, {}, (err, result) => err ? reject(err) : resolve(result));
     });
