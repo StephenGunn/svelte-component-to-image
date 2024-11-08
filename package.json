@@ -10,7 +10,7 @@
   },
   "scripts": {
     "dev": "vite dev",
-    "build": "svelte-kit sync && svelte-package",
+    "build": "svelte-kit sync && svelte-package -o package",
     "prepublishOnly": "echo 'Did you mean to publish `./package/`, instead of `./`?' && exit 1",
     "test": "playwright test && npm run test:unit -- --run",
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
@@ -23,7 +23,7 @@
     "@playwright/test": "^1.29.1",
     "@sveltejs/adapter-auto": "^3.0.0",
     "@sveltejs/kit": "^2.5.27",
-    "@sveltejs/package": "^1.0.2",
+    "@sveltejs/package": "^2.0.0",
     "@sveltejs/vite-plugin-svelte": "^4.0.0",
     "@types/eslint": "^9.6.0",
     "@typescript-eslint/eslint-plugin": "^5.48.0",
@@ -52,5 +52,52 @@
   "type": "module",
   "keywords": [
     "svelte"
-  ]
+  ],
+  "exports": {
+    "./package.json": "./package.json",
+    "./font-handling": {
+      "types": "./package/font-handling/index.d.ts",
+      "svelte": "./package/font-handling/index.js",
+      "default": "./package/font-handling/index.js"
+    },
+    ".": {
+      "types": "./package/index.d.ts",
+      "svelte": "./package/index.js",
+      "default": "./package/index.js"
+    },
+    "./processing/nodes_render": {
+      "types": "./package/processing/nodes_render.d.ts",
+      "default": "./package/processing/nodes_render.js"
+    },
+    "./processing/png_render": {
+      "types": "./package/processing/png_render.d.ts",
+      "default": "./package/processing/png_render.js"
+    },
+    "./processing/svg_render": {
+      "types": "./package/processing/svg_render.d.ts",
+      "default": "./package/processing/svg_render.js"
+    }
+  },
+  "files": [
+    "package"
+  ],
+  "typesVersions": {
+    ">4.0": {
+      "font-handling": [
+        "./package/font-handling/index.d.ts"
+      ],
+      "index.d.ts": [
+        "./package/index.d.ts"
+      ],
+      "processing/nodes_render": [
+        "./package/processing/nodes_render.d.ts"
+      ],
+      "processing/png_render": [
+        "./package/processing/png_render.d.ts"
+      ],
+      "processing/svg_render": [
+        "./package/processing/svg_render.d.ts"
+      ]
+    }
+  }
 }
