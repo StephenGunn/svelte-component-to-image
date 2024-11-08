@@ -7,12 +7,11 @@ import { render } from 'svelte/server';
 export const nodes_render = async (Component, props) => {
     // render the body and the head
     const { head, body } = render(Component, { props });
-    console.log('TESTING');
-    console.log('head', head);
-    console.log('body', body);
-    console.log('props', props);
+    if (!head) {
+        console.error('CSS not being returned from the Svelte component. Please add <svelte:options css="injected" /> to the top of your image component.');
+    }
     const inline_html = await new Promise((resolve, reject) => {
-        juiceResources(head ? head + body : body, {}, (err, result) => err ? reject(err) : resolve(result));
+        juiceResources(head + body, {}, (err, result) => (err ? reject(err) : resolve(result)));
     });
     // render satori friendly HTML and return it
     const satori_nodes = to_satori_nodes(inline_html);
