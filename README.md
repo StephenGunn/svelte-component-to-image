@@ -19,7 +19,9 @@ This package is NOT for rendering normal svelte components as images, you will n
 
 ## Svelte 5 Usage
 
-The svelte 5 version will be available as the 1.0.0 release.
+The svelte 5 version will be available as the 1.0.0+ release.
+
+You will need to add `<svelte:options css="injected" />` to every component you want to render as an image. You will see an error if you don't and the component will not render.
 
 ## Svelte 4 Usage
 
@@ -137,6 +139,10 @@ in the endpoint.
 
 Once the font is loaded, you can reference them in the CSS using `font-family`. If only one font is loaded,
 it will be the default.
+
+### Not All Fonts Work!
+
+Not all fonts work! If a font fails to load it will break the image rendering. I am not sure what causes this or which fonts are "approved" - but I have had luck using [Font Squirrel's Webfont Generator](https://www.fontsquirrel.com/tools/webfont-generator) to convert fonts to web-safe formats and using those.
 
 ### Images
 
