@@ -5,6 +5,8 @@ A package for easily rendering .png images from svelte components in SvelteKit. 
 
 Good for rendering dynamic Open Graph images quickly and effeciently without having to use canvas.
 
+This package is NOT for rendering normal svelte components as images, you will need to write your components with image rendering in mind. The guidelines are set by ([Satori's CSS Guidelines](https://github.com/vercel/satori#css))
+
 [Demo](https://svelte-component-to-image.vercel.app/)
 
 ## Features
@@ -46,31 +48,30 @@ that require preproccesors like TypeScript or SASS.
 
 ```svelte
 <script lang="ts">
-    export let text: string = "hello"
+	export let text: string = 'hello';
 </script>
 
 <div id="container">
-    <h1>
-        {text} world!
-    </h1>
+	<h1>
+		{text} world!
+	</h1>
 </div>
 
-
 <style>
-    #container {
-        width: 1200px;
-        height: 600px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        position: relative;
-        background: rgb(63,94,251);
-        background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(252,70,107,1) 100%);
-    }
-    h1 {
-        color: red;
-        font-size: 75px;
-    }
+	#container {
+		width: 1200px;
+		height: 600px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		position: relative;
+		background: rgb(63, 94, 251);
+		background: radial-gradient(circle, rgba(63, 94, 251, 1) 0%, rgba(252, 70, 107, 1) 100%);
+	}
+	h1 {
+		color: red;
+		font-size: 75px;
+	}
 </style>
 ```
 
