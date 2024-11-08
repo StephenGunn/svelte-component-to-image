@@ -15,9 +15,13 @@ Good for rendering dynamic Open Graph images quickly and effeciently without hav
 - Lightweight and fast (doesn't use canvas or puppeteer)
 - Load custom fonts: tff, otf, woff accepted (woff2 not accepted currently)
 
-## Alpha
+## Svelte 5 Usage
 
-This package is very much in it's alpha stages. While it works, use in production at your own risk.
+The svelte 5 version will be available as the 1.0.0 release.
+
+## Svelte 4 Usage
+
+The Svelte 4 version is available as the 0.1.0 release.
 
 ## Installation
 
@@ -39,6 +43,7 @@ Create a `.svelte` component with JS/HTML/CSS. You can pass props or use additio
 that require preproccesors like TypeScript or SASS.
 
 #### HelloWorld.svelte
+
 ```svelte
 <script lang="ts">
     export let text: string = "hello"
@@ -70,11 +75,13 @@ that require preproccesors like TypeScript or SASS.
 ```
 
 ### +server.ts Endpoint
+
 Create a +server.ts endpoint to render and serve the image. Import the package and options type.
 
 More on how the font importing works below.
 
 #### image/+server.ts
+
 ```TS
 import { error } from '@sveltejs/kit'
 import type { RequestHandler } from './$types'
@@ -84,7 +91,7 @@ import { image_from_component, type RenderOptions } from 'svelte-component-to-im
 
 // Normal .svelte component
 import HelloWorld from './HelloWorld.svelte'
- 
+
 export const GET: RequestHandler = (async ({url}) => {
     try {
         const options: RenderOptions = {
@@ -117,7 +124,8 @@ export const GET: RequestHandler = (async ({url}) => {
 ```
 
 ### Font Importing
-You can import as many ttf, otf, and woff fonts as you want to use inside of your component. 
+
+You can import as many ttf, otf, and woff fonts as you want to use inside of your component.
 Although, importing 100 fonts is going to affect server load and speed.
 
 **woff2 files are not currently supported.**
@@ -130,6 +138,7 @@ Once the font is loaded, you can reference them in the CSS using `font-family`. 
 it will be the default.
 
 ### Images
+
 Images can be used and rendered like normal. You will want to set the height and width.
 
 ```HTML
@@ -137,10 +146,10 @@ Images can be used and rendered like normal. You will want to set the height and
 ```
 
 ### More info
+
 This uses Vercel's Satori. You can find out more about what is and isn't supported by reading it's docs:
 [Vercel's Satori](https://github.com/vercel/satori)
 
 ## License
 
 MIT
-
