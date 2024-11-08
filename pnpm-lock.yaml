@@ -9,7 +9,7 @@ importers:
   .:
     dependencies:
       '@resvg/resvg-js':
-        specifier: ^2.2.0
+        specifier: ^2.6.2
         version: 2.6.2
       juice:
         specifier: ^8.1.0
@@ -22,13 +22,13 @@ importers:
         version: 0.3.2
     devDependencies:
       '@playwright/test':
-        specifier: ^1.29.1
+        specifier: ^1.48.2
         version: 1.48.2
       '@sveltejs/adapter-auto':
-        specifier: ^3.0.0
+        specifier: ^3.3.1
         version: 3.3.1(@sveltejs/kit@2.8.0(@sveltejs/vite-plugin-svelte@4.0.0(svelte@5.1.12)(vite@5.4.10(@types/node@22.9.0)))(svelte@5.1.12)(vite@5.4.10(@types/node@22.9.0)))
       '@sveltejs/kit':
-        specifier: ^2.5.27
+        specifier: ^2.8.0
         version: 2.8.0(@sveltejs/vite-plugin-svelte@4.0.0(svelte@5.1.12)(vite@5.4.10(@types/node@22.9.0)))(svelte@5.1.12)(vite@5.4.10(@types/node@22.9.0))
       '@sveltejs/package':
         specifier: ^2.3.7
@@ -37,55 +37,55 @@ importers:
         specifier: ^4.0.0
         version: 4.0.0(svelte@5.1.12)(vite@5.4.10(@types/node@22.9.0))
       '@types/eslint':
-        specifier: ^9.6.0
+        specifier: ^9.6.1
         version: 9.6.1
       '@typescript-eslint/eslint-plugin':
-        specifier: ^5.48.0
+        specifier: ^5.62.0
         version: 5.62.0(@typescript-eslint/parser@5.62.0(eslint@9.14.0)(typescript@5.6.3))(eslint@9.14.0)(typescript@5.6.3)
       '@typescript-eslint/parser':
-        specifier: ^5.48.0
+        specifier: ^5.62.0
         version: 5.62.0(eslint@9.14.0)(typescript@5.6.3)
       eslint:
-        specifier: ^9.7.0
+        specifier: ^9.14.0
         version: 9.14.0
       eslint-config-prettier:
         specifier: ^9.1.0
         version: 9.1.0(eslint@9.14.0)
       eslint-plugin-svelte:
-        specifier: ^2.36.0
+        specifier: ^2.46.0
         version: 2.46.0(eslint@9.14.0)(svelte@5.1.12)
       eslint-plugin-svelte3:
         specifier: ^4.0.0
         version: 4.0.0(eslint@9.14.0)(svelte@5.1.12)
       globals:
-        specifier: ^15.0.0
+        specifier: ^15.12.0
         version: 15.12.0
       prettier:
-        specifier: ^3.3.2
+        specifier: ^3.3.3
         version: 3.3.3
       prettier-plugin-svelte:
-        specifier: ^3.2.6
+        specifier: ^3.2.7
         version: 3.2.7(prettier@3.3.3)(svelte@5.1.12)
       svelte:
-        specifier: ^5.0.0
+        specifier: ^5.1.12
         version: 5.1.12
       svelte-check:
-        specifier: ^4.0.0
+        specifier: ^4.0.6
         version: 4.0.6(svelte@5.1.12)(typescript@5.6.3)
       tslib:
-        specifier: ^2.4.1
+        specifier: ^2.8.1
         version: 2.8.1
       typescript:
-        specifier: ^5.5.0
+        specifier: ^5.6.3
         version: 5.6.3
       typescript-eslint:
-        specifier: ^8.0.0
+        specifier: ^8.13.0
         version: 8.13.0(eslint@9.14.0)(typescript@5.6.3)
       vite:
-        specifier: ^5.4.4
+        specifier: ^5.4.10
         version: 5.4.10(@types/node@22.9.0)
       vitest:
-        specifier: ^2.0.4
+        specifier: ^2.1.4
         version: 2.1.4(@types/node@22.9.0)
 
 packages:
@@ -1432,8 +1432,8 @@ packages:
   stackback@0.0.2:
     resolution: {integrity: sha512-1XMJE5fQo1jGH6Y/7ebnwPOBEkIEnT4QF32d5R1+VXdXveM0IBMJt8zfaxX1P3QhVwrYe+576+jkANtSS2mBbw==}
 
-  std-env@3.7.0:
-    resolution: {integrity: sha512-JPbdCEQLj1w5GilpiHAx3qJvFndqybBysA3qUOnznweH4QbNYUsW/ea8QzSrnh0vNsezMMw5bcVool8lM0gwzg==}
+  std-env@3.8.0:
+    resolution: {integrity: sha512-Bc3YwwCB+OzldMxOXJIIvC6cPRWr/LxOp48CdQTOkPyk/t4JWWJbrilwBd7RJzKV8QW7tJkcgAmeuLLJugl5/w==}
 
   string.prototype.codepointat@0.2.1:
     resolution: {integrity: sha512-2cBVCj6I4IOvEnjgO/hWqXjqBGsY+zwPmHl12Srk9IXSZ56Jwwmy+66XO5Iut/oQVR7t5ihYdLB0GMa4alEUcg==}
@@ -2948,7 +2948,7 @@ snapshots:
 
   stackback@0.0.2: {}
 
-  std-env@3.7.0: {}
+  std-env@3.8.0: {}
 
   string.prototype.codepointat@0.2.1: {}
 
@@ -3115,7 +3115,7 @@ snapshots:
       expect-type: 1.1.0
       magic-string: 0.30.12
       pathe: 1.1.2
-      std-env: 3.7.0
+      std-env: 3.8.0
       tinybench: 2.9.0
       tinyexec: 0.3.1
       tinypool: 1.0.1
