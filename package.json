@@ -66,19 +66,19 @@
 	"typesVersions": {
 		">4.0": {
 			"font-handling": [
-				"./package/font-handling/index.d.ts"
+				"./dist/font-handling/index.d.ts"
 			],
 			"index.d.ts": [
-				"./package/index.d.ts"
+				"./dist/index.d.ts"
 			],
 			"processing/nodes_render": [
-				"./package/processing/nodes_render.d.ts"
+				"./dist/processing/nodes_render.d.ts"
 			],
 			"processing/png_render": [
-				"./package/processing/png_render.d.ts"
+				"./dist/processing/png_render.d.ts"
 			],
 			"processing/svg_render": [
-				"./package/processing/svg_render.d.ts"
+				"./dist/processing/svg_render.d.ts"
 			]
 		}
 	}
