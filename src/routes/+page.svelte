@@ -1,6 +1,6 @@
 <script lang="ts">
-    let value: string = "hello"
-    let second: string = "absolutely positioned"
+    let value: string = $state("hello")
+    let second: string = $state("absolutely positioned")
 </script>
 
 <main>
