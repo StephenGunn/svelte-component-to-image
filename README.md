@@ -5,8 +5,6 @@ A package for easily rendering .png images from svelte components in SvelteKit. 
 
 Good for rendering dynamic Open Graph images quickly and effeciently without having to use canvas.
 
-This package is NOT for rendering normal svelte components as images, you will need to write your components with image rendering in mind. The guidelines are set by ([Satori's CSS Guidelines](https://github.com/vercel/satori#css))
-
 [Demo](https://svelte-component-to-image.vercel.app/)
 
 ## Features
@@ -44,6 +42,8 @@ npm install svelte-component-to-image
 - Cloudflare Pages (not working)
 
 ## Usage
+
+This package is NOT for rendering normal svelte components as images, you will need to write your components with image rendering in mind. The guidelines are set by ([Satori's CSS Guidelines](https://github.com/vercel/satori#css)) - you will need to write your markup and css with these factors in mind.
 
 ### Create A Component
 
