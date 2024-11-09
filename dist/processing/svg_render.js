@@ -7,6 +7,8 @@ export const svg_render = async (nodes, options) => {
         height: options.height,
         fonts: []
     };
+    console.log('nodes', nodes);
+    console.log('options', options);
     // render each font into an array buffer
     if (options.fonts.length > 0) {
         let rendered_fonts = [];
