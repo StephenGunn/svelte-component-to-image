@@ -10,6 +10,8 @@ export const nodes_render = async (Component, props) => {
     if (!head) {
         console.error('CSS not being returned from the Svelte component. Please add <svelte:options css="injected" /> to the top of your image component.');
     }
+    console.log('head', head);
+    console.log('body', body);
     const inline_html = inlineContent(body, head, {});
     console.log('inline_html', inline_html);
     // render satori friendly HTML and return it
