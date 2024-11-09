@@ -23,6 +23,10 @@ The svelte 5 version will be available as the 1.0.0+ release.
 
 You will need to add `<svelte:options css="injected" />` to every component you want to render as an image. You will see an error if you don't and the component will not render.
 
+### Warning
+
+There is currently a bug with the Svelte 5 version deep in a dependency that will render radial gradients fine in dev but will crash production. I am working on a fix.
+
 ## Svelte 4 Usage
 
 The Svelte 4 version is available as the 0.1.0 release.

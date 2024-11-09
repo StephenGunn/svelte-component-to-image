@@ -5,31 +5,36 @@ import { html as to_satori_nodes } from 'satori-html';
 import { render } from 'svelte/server';
 
 export const nodes_render = async (
-  Component: any,
-  props?: {
-    [key: string]: any;
-  }
+	Component: any,
+	props?: {
+		[key: string]: any;
+	}
 ) => {
-  // render the body and the head
-  const { head, body } = render(Component, { props });
+	// render the body and the head
+	const { head, body } = render(Component, { props });
 
-  if (!head) {
-    console.error(
-      'CSS not being returned from the Svelte component. Please add <svelte:options css="injected" /> to the top of your image component.'
-    );
-  }
+	if (!head) {
+		throw new Error(
+			'CSS not being returned from the Svelte component. Please add <svelte:options css="injected" /> to the top of your image component.'
+		);
+	}
 
-  console.log('head', head);
-  console.log('body', body);
+	if (!body) {
+		throw new Error('No HTML returned from component.');
+	}
 
-  const inline_html: string = juice(head + body, {});
+	const inline_html: string = juice(head + body, {});
 
-  console.log('inline_html', inline_html);
+	if (!inline_html) {
+		throw new Error('Trouble inlining the CSS.');
+	}
 
-  // render satori friendly HTML and return it
-  const satori_nodes = to_satori_nodes(inline_html);
+	// render satori friendly HTML and return it
+	const satori_nodes = to_satori_nodes(inline_html);
 
-  console.log('satori_nodes', satori_nodes);
+	if (!satori_nodes) {
+		throw new Error('Trouble converting HTML to Satori nodes');
+	}
 
-  return satori_nodes;
+	return satori_nodes;
 };

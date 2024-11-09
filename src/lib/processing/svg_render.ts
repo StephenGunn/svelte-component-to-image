@@ -11,9 +11,6 @@ export const svg_render = async (nodes: VNode, options: RenderOptions) => {
 		fonts: []
 	};
 
-	console.log('nodes', nodes);
-	console.log('options', options);
-
 	// render each font into an array buffer
 	if (options.fonts.length > 0) {
 		let rendered_fonts: FontOptions[] = [];
@@ -26,8 +23,10 @@ export const svg_render = async (nodes: VNode, options: RenderOptions) => {
 				style: font.style
 			});
 		}
-		if (rendered_fonts.length !== options.fonts.length)
-			console.error('There was a problem rendering a font.');
+
+		if (rendered_fonts.length !== options.fonts.length) {
+			throw new Error('There was a problem rendering a font.');
+		}
 
 		satori_options = {
 			width: options.width,
@@ -38,6 +37,10 @@ export const svg_render = async (nodes: VNode, options: RenderOptions) => {
 
 	// do the rendering
 	const svg = await satori(nodes, satori_options);
+
+	if (!svg) {
+		throw new Error('There was a problem rendering the SVG.');
+	}
 
 	return svg;
 };
