@@ -1,7 +1,6 @@
 // Take a svelte component, render it down to html, inline the styles
 // then return a set of satori ready nodes
-import pkg from 'juice';
-const { inlineContent } = pkg;
+import juice from 'juice';
 import { html as to_satori_nodes } from 'satori-html';
 import { render } from 'svelte/server';
 export const nodes_render = async (Component, props) => {
@@ -12,7 +11,7 @@ export const nodes_render = async (Component, props) => {
     }
     console.log('head', head);
     console.log('body', body);
-    const inline_html = inlineContent(body, head, {});
+    const inline_html = juice(head + body, {});
     console.log('inline_html', inline_html);
     // render satori friendly HTML and return it
     const satori_nodes = to_satori_nodes(inline_html);
