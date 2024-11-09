@@ -22,7 +22,8 @@ export const GET: RequestHandler = (async ({ url }) => {
           weight: 400,
           style: 'normal'
         }
-      ]
+      ],
+      debug: true
     };
     const image = await image_from_component(HelloWorld, options);
     const response = new Response(image);

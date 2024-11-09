@@ -8,10 +8,16 @@ export const nodes_render = async (
 	Component: any,
 	props?: {
 		[key: string]: any;
-	}
+	},
+	debug?: boolean
 ) => {
 	// render the body and the head
 	const { head, body } = render(Component, { props });
+
+	if (debug) {
+		console.log('CSS:', head);
+		console.log('HTML:', body);
+	}
 
 	if (!head) {
 		throw new Error(
@@ -25,12 +31,20 @@ export const nodes_render = async (
 
 	const inline_html: string = juice(head + body, {});
 
+	if (debug) {
+		console.log('INLINED HTML:', inline_html);
+	}
+
 	if (!inline_html) {
 		throw new Error('Trouble inlining the CSS.');
 	}
 
 	// render satori friendly HTML and return it
 	const satori_nodes = to_satori_nodes(inline_html);
+
+	if (debug) {
+		console.log('SATORI NODES:', satori_nodes);
+	}
 
 	if (!satori_nodes) {
 		throw new Error('Trouble converting HTML to Satori nodes');
