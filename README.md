@@ -64,6 +64,9 @@ that require preproccesors like TypeScript or SASS.
 </div>
 
 <style>
+	* {
+		display: flex; /* if you're having problems with satori errors, this line can really help */
+	}
 	#container {
 		width: 1200px;
 		height: 600px;
@@ -114,14 +117,18 @@ export const GET: RequestHandler = (async ({url}) => {
                     weight: 400,
                     style: 'normal'
                 }
-            ]
+            ],
+            debug: false // you can omit this or set it to true to see logs of data, it can help for debug edge cases
         }
 
         // pass the component and options to the package
         const image    = await image_from_component(HelloWorld, options)
         const response = new Response(image)
-        response.headers.append('Content-Type', 'image/png')
-        response.headers.append('Cache-Control', 's-maxage=604800, stale-while-revalidate=604800')
+        if(!dev){
+            // caching on dev will make it hard to see iterations
+            response.headers.append('Content-Type', 'image/png')
+            response.headers.append('Cache-Control', 's-maxage=604800, stale-while-revalidate=604800')
+        }
         return response
     } catch (e) {
         console.error(e)
