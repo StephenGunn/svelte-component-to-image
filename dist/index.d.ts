@@ -6,4 +6,5 @@ export type RenderOptions = {
         [key: string]: any;
     };
     fonts: FontOptions[];
+    debug?: boolean;
 };

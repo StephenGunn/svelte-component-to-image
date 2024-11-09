@@ -3,9 +3,13 @@
 import juice from 'juice';
 import { html as to_satori_nodes } from 'satori-html';
 import { render } from 'svelte/server';
-export const nodes_render = async (Component, props) => {
+export const nodes_render = async (Component, props, debug) => {
     // render the body and the head
     const { head, body } = render(Component, { props });
+    if (debug) {
+        console.log('CSS:', head);
+        console.log('HTML:', body);
+    }
     if (!head) {
         throw new Error('CSS not being returned from the Svelte component. Please add <svelte:options css="injected" /> to the top of your image component.');
     }
@@ -13,11 +17,17 @@ export const nodes_render = async (Component, props) => {
         throw new Error('No HTML returned from component.');
     }
     const inline_html = juice(head + body, {});
+    if (debug) {
+        console.log('INLINED HTML:', inline_html);
+    }
     if (!inline_html) {
         throw new Error('Trouble inlining the CSS.');
     }
     // render satori friendly HTML and return it
     const satori_nodes = to_satori_nodes(inline_html);
+    if (debug) {
+        console.log('SATORI NODES:', satori_nodes);
+    }
     if (!satori_nodes) {
         throw new Error('Trouble converting HTML to Satori nodes');
     }

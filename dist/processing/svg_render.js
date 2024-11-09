@@ -29,8 +29,17 @@ export const svg_render = async (nodes, options) => {
             fonts: rendered_fonts
         };
     }
+    if (options.debug) {
+        console.log('NUMBER OF FONT FILES RENDERED:', satori_options.fonts.length);
+        console.log('WIDTH:', satori_options.width);
+        console.log('HEIGHT:', satori_options.height);
+    }
     // do the rendering
     const svg = await satori(nodes, satori_options);
+    if (options.debug && svg) {
+        // something to do a basic check to see if the SVG is valid
+        console.log('An SVG was rendered successfully.');
+    }
     if (!svg) {
         throw new Error('There was a problem rendering the SVG.');
     }

@@ -5,9 +5,9 @@ import { png_render } from './processing/png_render.js';
 export const image_from_component = async (component, options) => {
     try {
         // the major steps
-        const nodes = await nodes_render(component, options.props);
+        const nodes = await nodes_render(component, options.props, options.debug);
         const svg = await svg_render(nodes, options);
-        const png = await png_render(svg, options);
+        const png = await png_render(svg, options, options.debug ?? false);
         return png;
     }
     catch (error) {
