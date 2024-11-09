@@ -20,6 +20,9 @@ export const nodes_render = async (
 		);
 	}
 
+	console.log('head', head);
+	console.log('body', body);
+
 	const inline_html: string = inlineContent(body, head, {});
 
 	console.log('inline_html', inline_html);
