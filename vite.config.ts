@@ -1,7 +1,14 @@
-import { defineConfig } from 'vitest/config';
+import { sveltekit } from '@sveltejs/kit/vite';
+import { defineConfig } from 'vite';
 
 export default defineConfig({
-	test: {
-		include: ['src/**/*.{test,spec}.{js,ts}']
+	plugins: [sveltekit()],
+	build: {
+		rollupOptions: {
+			external: ['@resvg/resvg-js']
+		}
+	},
+	optimizeDeps: {
+		exclude: ['@resvg/resvg-js']
 	}
 });

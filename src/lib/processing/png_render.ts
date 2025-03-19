@@ -1,8 +1,10 @@
 // Take SVG and render it into a PNG
-import { Resvg } from '@resvg/resvg-js';
+import { getResvg } from '../resvg-wrapper.js';
 
 export const png_render = async (svg: string, options: ResvgOptions, debug: boolean) => {
 	try {
+		const Resvg = await getResvg();
+
 		const resvg = new Resvg(svg, {
 			fitTo: {
 				mode: 'width',
@@ -16,9 +18,9 @@ export const png_render = async (svg: string, options: ResvgOptions, debug: bool
 		return pngBuffer;
 	} catch (error) {
 		if (debug) {
-			console.error('An error happened in the PNG_RENDER function');
+			console.error('An error happened in the PNG_RENDER function', error);
 		}
-		// gods please forgive me for this, I know I have sinned
+		// Re-throw the error for proper handling
 		throw error;
 	}
 };

@@ -1,6 +1,6 @@
 {
   "name": "svelte-component-to-image",
-  "version": "1.0.16",
+  "version": "1.0.17",
   "license": "MIT",
   "author": "Stephen Gunn",
   "homepage": "https://github.com/StephenGunn/svelte-component-to-image",
@@ -18,7 +18,17 @@
     "lint": "eslint .",
     "format": "prettier --write ."
   },
+  "dependencies": {
+    "juice": "^11.0.0",
+    "satori": "^0.11.3",
+    "satori-html": "^0.3.2"
+  },
+  "peerDependencies": {
+    "@resvg/resvg-js": "^2.6.2",
+    "svelte": "^4.0.0 || ^5.0.0-next.0"
+  },
   "devDependencies": {
+    "@resvg/resvg-js": "^2.6.2",
     "@playwright/test": "^1.48.2",
     "@sveltejs/adapter-auto": "^3.3.1",
     "@sveltejs/kit": "^2.8.0",
@@ -40,12 +50,6 @@
     "typescript-eslint": "^8.13.0",
     "vite": "^5.4.10",
     "vitest": "^2.1.4"
-  },
-  "dependencies": {
-    "@resvg/resvg-js": "^2.6.2",
-    "juice": "^11.0.0",
-    "satori": "^0.11.3",
-    "satori-html": "^0.3.2"
   },
   "type": "module",
   "keywords": [

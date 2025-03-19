@@ -4,6 +4,15 @@ import juice from 'juice';
 import { html as to_satori_nodes } from 'satori-html';
 import { render } from 'svelte/server';
 
+interface VNode {
+	type: string;
+	props: {
+		style?: Record<string, any>;
+		children?: string | VNode | VNode[];
+		[prop: string]: any;
+	};
+}
+
 export const nodes_render = async (
 	Component: any,
 	props?: {
@@ -40,7 +49,7 @@ export const nodes_render = async (
 	}
 
 	// render satori friendly HTML and return it
-	const satori_nodes = to_satori_nodes(inline_html);
+	const satori_nodes: VNode = to_satori_nodes(inline_html);
 
 	if (debug) {
 		console.log('SATORI NODES:', satori_nodes);
