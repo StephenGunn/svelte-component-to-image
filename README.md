@@ -5,7 +5,9 @@ A package for easily rendering .png images from svelte components in SvelteKit. 
 
 Good for rendering dynamic Open Graph images quickly and effeciently without having to use canvas.
 
-[Demo](https://svelte-component-to-image.vercel.app/)
+- [Demo](https://svelte-component-to-image.vercel.app/)
+- [Minimal Deployment Demo on Vercel](https://github.com/StephenGunn/skcti) - A quick reference if you need it.
+- [My blog post detailing how to use this library to create dynamic open-graph images for a sveltekit site](https://jovianmoon.io/posts/installing-and-using-svelte-component-to-image)
 
 ## Features
 
@@ -194,6 +196,10 @@ it will be the default.
 ### Not All Fonts Work!
 
 Not all fonts work! If a font fails to load it will break the image rendering. I am not sure what causes this or which fonts are "approved" - but I have had luck using [Font Squirrel's Webfont Generator](https://www.fontsquirrel.com/tools/webfont-generator) to convert fonts to web-safe formats and using those.
+
+### 1 font file per style / weight
+
+If you're trying to use a variable weight font like Jost, you will need to use Font Squirrel to generate a separate file per weight and style. It's a pain, I know.
 
 ### Images
 
