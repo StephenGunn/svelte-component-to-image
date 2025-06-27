@@ -45,25 +45,27 @@ npm install @resvg/resvg-js
 When deploying to serverless platforms, add these configurations to handle the native @resvg/resvg-js module:
 
 **vite.config.js:**
+
 ```js
 export default defineConfig({
-  plugins: [sveltekit()],
-  build: {
-    rollupOptions: {
-      external: ['@resvg/resvg-js']
-    }
-  }
+	plugins: [sveltekit()],
+	build: {
+		rollupOptions: {
+			external: ['@resvg/resvg-js']
+		}
+	}
 });
 ```
 
 **svelte.config.js:**
+
 ```js
 export default {
-  kit: {
-    adapter: adapter({
-      external: ['@resvg/resvg-js']
-    })
-  }
+	kit: {
+		adapter: adapter({
+			external: ['@resvg/resvg-js']
+		})
+	}
 };
 ```
 
@@ -131,6 +133,7 @@ More on how the font importing works below.
 
 ```TS
 import { error } from '@sveltejs/kit'
+import { dev } from '$app/environment';
 import type { RequestHandler } from './$types'
 
 // Svelte Component To Image
