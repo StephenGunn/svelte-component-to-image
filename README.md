@@ -31,15 +31,52 @@ The Svelte 4 version is available as the 0.1.0 release.
 
 ## Installation
 
-```
+```bash
 npm install svelte-component-to-image
+
+# Also install @resvg/resvg-js as it contains native bindings that cannot be bundled with the library
+npm install @resvg/resvg-js
 ```
+
+### Deployment Configuration
+
+#### Serverless Platforms (Vercel, Netlify)
+
+When deploying to serverless platforms, add these configurations to handle the native @resvg/resvg-js module:
+
+**vite.config.js:**
+```js
+export default defineConfig({
+  plugins: [sveltekit()],
+  build: {
+    rollupOptions: {
+      external: ['@resvg/resvg-js']
+    }
+  }
+});
+```
+
+**svelte.config.js:**
+```js
+export default {
+  kit: {
+    adapter: adapter({
+      external: ['@resvg/resvg-js']
+    })
+  }
+};
+```
+
+#### Node Server Deployment
+
+If you're using `@sveltejs/adapter-node` for traditional server deployment, the package works without additional configuration since Node.js can load native modules directly from node_modules.
 
 ### Tested On
 
-- Vercel (working)
-- Netlify (working)
-- Cloudflare Pages (not working)
+- Vercel (working - requires serverless configuration)
+- Netlify (working - requires serverless configuration)
+- Node.js servers (working - no additional configuration needed)
+- Cloudflare Pages (not working - does not support native modules)
 
 ## Usage
 
