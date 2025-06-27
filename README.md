@@ -94,6 +94,8 @@ that require preproccesors like TypeScript or SASS.
 #### HelloWorld.svelte
 
 ```svelte
+<svelte:options css="injected" />
+
 <script lang="ts">
 	export let text: string = 'hello';
 </script>
