@@ -5,9 +5,8 @@ A package for easily rendering .png images from svelte components in SvelteKit. 
 
 Good for rendering dynamic Open Graph images quickly and effeciently without having to use canvas.
 
-- [Demo](https://svelte-component-to-image.vercel.app/)
 - [Minimal Deployment Demo on Vercel](https://github.com/StephenGunn/skcti) - A quick reference if you need it.
-- [My blog post detailing how to use this library to create dynamic open-graph images for a sveltekit site](https://jovianmoon.io/posts/installing-and-using-svelte-component-to-image)
+- [My blog post detailing how to use this library to create dynamic open-graph images for a sveltekit site](https://jovianmoon.io/posts/generating-open-graph-images-with-sveltekit-components)
 
 ## Features
 
@@ -19,13 +18,7 @@ Good for rendering dynamic Open Graph images quickly and effeciently without hav
 
 ## Svelte 5 Usage
 
-The svelte 5 version will be available as the 1.0.0+ release.
-
 You will need to add `<svelte:options css="injected" />` to every component you want to render as an image. You will see an error if you don't and the component will not render.
-
-### Warning
-
-There is currently a bug with the Svelte 5 version deep in a dependency that will render radial gradients fine in dev but will crash production. I am working on a fix.
 
 ## Svelte 4 Usage
 
