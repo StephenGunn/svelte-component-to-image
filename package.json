@@ -19,16 +19,15 @@
     "format": "prettier --write ."
   },
   "dependencies": {
+	"@resvg/resvg-js": "^2.6.2",
     "juice": "^11.0.0",
     "satori": "^0.11.3",
     "satori-html": "^0.3.2"
   },
   "peerDependencies": {
-    "@resvg/resvg-js": "^2.6.2",
-    "svelte": "^4.0.0 || ^5.0.0-next.0"
+    "svelte": "^5.0.0-next.0"
   },
   "devDependencies": {
-    "@resvg/resvg-js": "^2.6.2",
     "@playwright/test": "^1.48.2",
     "@sveltejs/adapter-auto": "^3.3.1",
     "@sveltejs/kit": "^2.8.0",
@@ -59,8 +58,11 @@
     "./package.json": "./package.json",
     ".": {
       "types": "./dist/index.d.ts",
-      "svelte": "./dist/index.js",
       "default": "./dist/index.js"
+    },
+	"./vite": {
+      "types": "./dist/vite/index.d.ts",
+      "default": "./dist/vite/index.js"
     }
   },
   "files": [
@@ -73,6 +75,9 @@
       ],
       "index.d.ts": [
         "./dist/index.d.ts"
+      ],
+	  "vite": [
+        "./dist/vite/index.d.ts"
       ],
       "processing/nodes_render": [
         "./dist/processing/nodes_render.d.ts"
