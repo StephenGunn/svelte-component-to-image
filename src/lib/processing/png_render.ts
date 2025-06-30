@@ -1,10 +1,8 @@
 // Take SVG and render it into a PNG
-import { getResvg } from '../resvg-wrapper.js';
+import { Resvg } from '@resvg/resvg-js';
 
 export const png_render = async (svg: string, options: ResvgOptions, debug: boolean) => {
 	try {
-		const Resvg = await getResvg();
-
 		const resvg = new Resvg(svg, {
 			fitTo: {
 				mode: 'width',

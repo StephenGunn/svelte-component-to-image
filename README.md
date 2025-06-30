@@ -35,45 +35,22 @@ The Svelte 4 version is available as the 0.1.0 release.
 
 ```bash
 npm install svelte-component-to-image
-
-# Also install @resvg/resvg-js as it contains native bindings that cannot be bundled with the library
-npm install @resvg/resvg-js
 ```
 
-### Deployment Configuration
+### Vite Plugin
 
-#### Serverless Platforms (Vercel, Netlify)
+Every package that uses `svelte` as a peer dependency is automatically added to the `noExternal` of `vite` but since vite can't handle the native bindings of `@resvg/resvg-js` you need to add this library to `ssr.external`...to provide you with a better DX this library ships with a vite plugin so you only need to do this
 
-When deploying to serverless platforms, add these configurations to handle the native @resvg/resvg-js module:
+```diff
+import { sveltekit } from '@sveltejs/kit/vite';
++import { svelte_component_to_image } from 'svelte-component-to-image/vite';
+import { defineConfig } from 'vite';
 
-**vite.config.js:**
-
-```js
 export default defineConfig({
-	plugins: [sveltekit()],
-	build: {
-		rollupOptions: {
-			external: ['@resvg/resvg-js']
-		}
-	}
+-	plugins: [sveltekit()]
++	plugins: [sveltekit(), svelte_component_to_image()]
 });
 ```
-
-**svelte.config.js:**
-
-```js
-export default {
-	kit: {
-		adapter: adapter({
-			external: ['@resvg/resvg-js']
-		})
-	}
-};
-```
-
-#### Node Server Deployment
-
-If you're using `@sveltejs/adapter-node` for traditional server deployment, the package works without additional configuration since Node.js can load native modules directly from node_modules.
 
 ### Tested On
 
