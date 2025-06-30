@@ -67,7 +67,7 @@ that require preproccesors like TypeScript or SASS.
 <svelte:options css="injected" />
 
 <script lang="ts">
-	export let text: string = 'hello';
+	let { text = 'hello' }: { text: string } = $props();
 </script>
 
 <div id="container">
