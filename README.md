@@ -27,7 +27,7 @@ The Svelte 4 version is available as the 0.1.0 release.
 ## Installation
 
 ```bash
-npm install svelte-component-to-image
+pnpm add -D svelte-component-to-image
 ```
 
 ### Vite Plugin
