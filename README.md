@@ -5,8 +5,8 @@ A package for easily rendering .png images from svelte components in SvelteKit. 
 
 Good for rendering dynamic Open Graph images quickly and effeciently without having to use canvas.
 
+- [Demo + Blog post about how to generate OG images](https://jovianmoon.io/posts/generating-open-graph-images-with-sveltekit-components)
 - [Minimal Deployment Demo on Vercel](https://github.com/StephenGunn/skcti) - A quick reference if you need it.
-- [My blog post detailing how to use this library to create dynamic open-graph images for a sveltekit site](https://jovianmoon.io/posts/generating-open-graph-images-with-sveltekit-components)
 
 ## Features
 
