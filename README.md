@@ -27,8 +27,10 @@ The Svelte 4 version is available as the 0.1.0 release.
 ## Installation
 
 ```bash
-pnpm add -D svelte-component-to-image
+pnpm add svelte-component-to-image
 ```
+
+> **Note:** Install as a regular dependency, not a dev dependency. This library is needed at runtime and some bundlers (e.g., adapter-node) handle dev dependencies differently, which can cause production build failures.
 
 ### Vite Plugin
 
